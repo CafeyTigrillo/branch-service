@@ -1,4 +1,4 @@
-
+const { Branches } = require('../models/branchModel');
 
 exports.getBranchById = async (req, res) => {
     try {
