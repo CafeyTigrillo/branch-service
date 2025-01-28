@@ -1,15 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const sequelize = require('./config/database');
-
+const branchRoutes = require('./routes/branchRoutes');
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT || 3001;
+app.use('/api/branches', branchRoutes);
 
-app.listen(port, () => {
+const port = 3001;
+app.listen(port, async () => {
     console.log(`Branch service running on port ${port}`);
-    sequelize.sync();
+    await sequelize.sync(); 
 });
