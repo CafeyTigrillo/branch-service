@@ -64,5 +64,4 @@ Retrieves comprehensive information about a specific branch location.
 - Unexpected server error occurred
 
 ---
-
 📝 **Note**: Ensure proper error handling when integrating with this API.
