@@ -1,45 +1,68 @@
-# Branch Service API
+# 🏢 Branch Service API
 
-This project is a REST API that allows interaction with branch (branches) data in a relational database. It was built using **Node.js**, **Express**, and **Sequelize** to connect to a relational database (like MySQL or PostgreSQL).
+A robust REST API for managing branch location data, powered by modern technologies:
 
-## Available Endpoints
+- 🚀 **Node.js** - Runtime environment
+- ⚡ **Express** - Web framework
+- 🗄️ **Sequelize** - ORM for database interactions
 
-### Get Branch by ID
+## 📚 API Reference
 
-**Endpoint:** `GET /api/branches/:id_branch`  
-This endpoint retrieves detailed information about a specific branch based on its ID.
+### Get Branch Details
 
-#### Route Parameters
-- `id_branch` (required): The unique identifier of the branch to retrieve.
-
-#### Responses
-
-1. **200 OK**  
-   If the branch with the specified ID is found, the server responds with a JSON object containing the branch data:
-   ```json
-   {
-     "id_branch": 1,
-     "province": "Pichincha",
-     "city": "Quito",
-     "canton": "Metropolitano",
-     "street": "Av. Amazonas y Naciones Unidas"
-   }
+```http
+GET /api/branches/:id_branch
 ```
 
-2. **404 Not Found**
-If no branch exists with the provided ID, the response will be:
+Retrieves comprehensive information about a specific branch location.
 
- ```json
-{
-  "message": "Branch not found"
-}
+#### Parameters
 
-```
+**id_branch** (number)
+- Required
+- Unique identifier for the branch
 
-3. **500 Internal Server Error**
-If an unexpected server error occurs, the response will be:
+#### Response Examples
+
+##### ✅ Successful Response - `200 OK`
+
 ```json
 {
-  "message": "Server error"
+    "id_branch": 1,
+    "province": "Pichincha",
+    "city": "Quito",
+    "canton": "Metropolitano",
+    "street": "Av. Amazonas y Naciones Unidas"
 }
 ```
+
+##### ❌ Branch Not Found - `404 Not Found`
+
+```json
+{
+    "message": "Branch not found"
+}
+```
+
+##### ⚠️ Server Error - `500 Internal Server Error`
+
+```json
+{
+    "message": "Server error"
+}
+```
+
+### Response Codes
+
+**200 - OK**
+- Successfully retrieved branch data
+
+**404 - Not Found**
+- Branch not found with the provided ID
+
+**500 - Internal Server Error**
+- Unexpected server error occurred
+
+---
+
+📝 **Note**: Ensure proper error handling when integrating with this API.
