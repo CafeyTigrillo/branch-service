@@ -1,6 +1,7 @@
 const express = require('express');
-const { getBranchById } = require('../controllers/branchController');
+const { getAllBranches  } = require('../controllers/branchController');
 const router = express.Router();
-router.get('/:id_branch', getBranchById);
+
+router.get('/all', getAllBranches); 
 
 module.exports = router;
