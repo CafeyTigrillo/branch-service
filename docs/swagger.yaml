@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: Branch Service API
+  description: API for managing restaurant branches.
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:3001'
+    description: 'Local server'
+
+paths:
+  /branches/all:
+    get:
+      summary: 'Retrieve all restaurant branches'
+      description: 'This endpoint fetches all the restaurant branches stored in the database.'
+      responses:
+        '200':
+          description: 'Successfully retrieved the list of branches'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: 'Branch ID'
+                      example: 1
+                    name:
+                      type: string
+                      description: 'Branch name'
+                      example: 'Sucursal Centro'
+                    location:
+                      type: string
+                      description: 'Branch location'
+                      example: 'Calle Falsa 123'
+        '404':
+          description: 'No branches found'
+        '500':
+          description: 'Internal server error'
+
+components:
+  schemas:
+    Branch:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 'Branch ID'
+        name:
+          type: string
+          description: 'Branch name'
+        location:
+          type: string
+          description: 'Branch location'

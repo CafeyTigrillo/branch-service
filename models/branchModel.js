@@ -1,29 +1,10 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/database");
 
-const Branches = sequelize.define('Branches', {
-    id_branch: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        allowNull: false,
-    },
-    province: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    city: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    canton: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    street: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-}, {
-    timestamps: false, // Disable createdAt and updatedAt
-});
+const Branches = sequelize.define("Branch", {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  name: { type: DataTypes.STRING, allowNull: false },
+  location: { type: DataTypes.STRING, allowNull: false },
+}, { timestamps: false });
 
-module.exports = { Branches };
+module.exports = { Branches }; 
