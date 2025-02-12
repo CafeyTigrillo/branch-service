@@ -1,10 +1,13 @@
-const { Sequelize } = require('sequelize');
-require('dotenv').config();
-
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-  host: process.env.DB_HOST,
-  dialect: 'mysql',
-  port: process.env.DB_PORT || 3306,
-});
-
-module.exports = sequelize;
+const sequelize = new Sequelize(process.env.DB_NAME || 'franchise_restaurant', 
+  process.env.DB_USER || 'admin', 
+  process.env.DB_PASS || 'Kiet1993', 
+  {
+    host: 'base-prueba.cj37eoxikdhd.us-east-1.rds.amazonaws.com', 
+    dialect: 'mysql',
+    port: 3306, 
+    dialectOptions: {
+      timezone: 'Z', 
+    },
+    logging: false, 
+  }
+);
