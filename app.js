@@ -8,7 +8,7 @@ const swaggerDocument = yaml.load('./docs/swagger.yaml');
 const Eureka = require('eureka-js-client').Eureka;
 
 const app = express();
-const PORT = 3000;
+const PORT = 3011;
 
 const eurekaClient = new Eureka({
   instance: {
